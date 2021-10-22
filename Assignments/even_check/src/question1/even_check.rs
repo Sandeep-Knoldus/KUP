@@ -1,4 +1,4 @@
-/// Function 'odd_even_test' checks a given number in even or odd
+/// Function 'even_check' checks a given number is even or not
 ///
 /// #Arguments
 ///
