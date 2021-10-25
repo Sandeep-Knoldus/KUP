@@ -6,7 +6,7 @@
 ///
 /// #Return
 ///
-/// Returns Result type and handling error
+/// Returns Result<String, String>
 pub fn even_check(number: i32) -> Result<String, String> {
     let result_match;
     if number % 2 == 0 {
