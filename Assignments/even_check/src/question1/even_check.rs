@@ -2,7 +2,7 @@
 ///
 /// #Arguments
 ///
-/// result: Taking i32 as input and generating Result of the number
+/// number: Taking i32 as input
 ///
 /// #Return
 ///
