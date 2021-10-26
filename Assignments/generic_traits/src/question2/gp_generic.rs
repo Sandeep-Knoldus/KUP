@@ -14,7 +14,13 @@ pub trait Iterator {
     fn generate(first_number: i32, ratio: i32, length: i32) -> Vec<i32>;
 }
 
-/// Struct GeometricSeries initializes the variables
+/// Struct GeometricSeries stores the variables
+///
+/// #Field
+///
+/// first_number: i32 type integer object for the first number in GP series
+/// ratio: i32 type integer object for the common ratio in GP series
+/// length: i32 type integer object for the generating upto the nth GP series
 pub struct GeometricSeries {
     pub first_number: i32,
     pub ratio: i32,
