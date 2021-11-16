@@ -14,11 +14,9 @@ pub use std::collections::HashMap;
 pub fn sum_conditional(map: HashMap<String, i32>, str: String) -> i32 {
     let mut result = 0;
     let length = str.len();
-    for (key, value) in map.iter() {
-        for loop1 in 0..key.len() - length + 1 {
-            if key[loop1..(loop1 + length)] == str {
-                result += value;
-            }
+    for (key, value) in &map {
+        if key[0..length] == str {
+            result += value;
         }
     }
     result
