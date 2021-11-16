@@ -15,7 +15,7 @@ pub fn check_palindrome(vect: Vec<i32>) -> bool {
             vect_2.push(vect[i]);
         }
     }
-    return if vect == vect_2 {
+    if vect == vect_2 {
         true
     } else {
         false
