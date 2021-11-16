@@ -10,11 +10,11 @@
 /// Returns vector Vec<i32> (the new vector without the drop_value)
 pub fn remove_value(vect: Vec<i32>, drop_value: i32) -> Vec<i32> {
     let mut vec_2 = Vec::new();
-    for i in 0..vect.len() {
-        if drop_value != vect[i] {
-            vec_2.push(vect[i]);
+    for values in &vect {
+        if drop_value != *values {
+            vec_2.push(*values);
         }
-        continue
+        continue;
     }
     vec_2
 }
