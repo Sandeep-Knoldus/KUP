@@ -9,9 +9,9 @@
 /// Returns integer i32 (the first occurring even number in the vector)
 pub fn even(vect: Vec<i32>) -> i32 {
     let mut result: i32 = 0;
-    for i in 0..vect.len() {
-        if vect[i] % 2 == 0 {
-            result = vect[i];
+    for values in &vect {
+        if values % 2 == 0 {
+            result = *values;
             break;
         } else {
             continue;
