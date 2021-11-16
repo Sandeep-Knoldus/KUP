@@ -10,14 +10,10 @@
 pub fn check_palindrome(vect: Vec<i32>) -> bool {
     let mut vect_2 = Vec::new();
     let length = vect.len() - 1;
-    for i in 0..=length {
-        if vect[i] == vect[length - i] {
-            vect_2.push(vect[i]);
+    for loop1 in 0..=length {
+        if vect[loop1] == vect[length - loop1] {
+            vect_2.push(vect[loop1]);
         }
     }
-    if vect == vect_2 {
-        true
-    } else {
-        false
-    }
+    vect == vect_2
 }
