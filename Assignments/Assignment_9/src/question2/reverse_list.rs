@@ -2,11 +2,11 @@
 ///
 /// #Arguments
 ///
-/// vect: Taking vector Vec<i32> from 'test.rs'
+/// vect: It is a vector Vec<i32>
 ///
 /// #Return
 ///
-/// Returns vector Vec<i32> (the new vector with the reversed values)
+/// Returns Vec<i32> (the new vector with the reversed values)
 pub fn reverse(vect: Vec<i32>) -> Vec<i32> {
     let mut vect_2 = Vec::new();
     let length = vect.len() - 1;
