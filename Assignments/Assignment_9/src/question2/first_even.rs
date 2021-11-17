@@ -2,16 +2,16 @@
 ///
 /// #Arguments
 ///
-/// vect: Taking vector Vec<i32> from 'test.rs'
+/// vect: It is vector Vec<i32>
 ///
 /// #Return
 ///
-/// Returns integer i32 (the first occurring even number in the vector)
+/// Returns i32 (the first occurring even number in the vector)
 pub fn even(vect: Vec<i32>) -> i32 {
     let mut result: i32 = 0;
-    for values in &vect {
+    for values in vect {
         if values % 2 == 0 {
-            result = *values;
+            result = values;
             break;
         } else {
             continue;
