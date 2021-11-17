@@ -3,7 +3,7 @@ pub use std::collections::HashMap;
 ///
 /// #Arguments
 ///
-/// map: Is a Hashmap with name as key and age as value
+/// map: Is a Hashmap<String, i32> with name as key and age as value
 /// str: Is a String for the sub-string
 ///
 /// #Return
