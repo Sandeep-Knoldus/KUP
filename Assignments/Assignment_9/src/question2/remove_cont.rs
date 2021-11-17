@@ -2,11 +2,11 @@
 ///
 /// #Arguments
 ///
-/// vect: Taking vector Vec<i32> from 'test.rs'
+/// vect: It is a vector Vec<i32>
 ///
 /// #Return
 ///
-/// Returns vector Vec<i32> (the new vector without the continuously repeating values)
+/// Returns Vec<i32> (the new vector without the continuously repeating values)
 pub fn remove_int(vect: Vec<i32>) -> Vec<i32> {
     let mut vec_2 = Vec::new();
     let length = vect.len();
