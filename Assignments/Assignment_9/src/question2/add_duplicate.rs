@@ -2,7 +2,7 @@
 ///
 /// #Arguments
 ///
-/// vect: It is a vector Vec<i32>
+/// vect: vect is a vector Vec<i32>
 ///
 /// #Return
 ///
