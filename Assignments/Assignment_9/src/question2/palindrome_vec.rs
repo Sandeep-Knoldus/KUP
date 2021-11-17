@@ -2,11 +2,11 @@
 ///
 /// #Arguments
 ///
-/// vect: Taking vector Vec<i32> from 'test.rs'
+/// vect: It is a vector Vec<i32>
 ///
 /// #Return
 ///
-/// Returns boolean bool (true -> if palindrome; false -> if not_palindrome)
+/// Returns boolean (true -> if palindrome; false -> if not_palindrome)
 pub fn check_palindrome(vect: Vec<i32>) -> bool {
     let mut vect_2 = Vec::new();
     let length = vect.len() - 1;
