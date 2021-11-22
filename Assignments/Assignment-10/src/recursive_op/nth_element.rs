@@ -11,7 +11,7 @@ use List::{Const, Space};
 /// #Arguments
 ///
 /// comparing_element - It is of type integer i32
-/// index- It is of tye integer i32
+/// index- It is of type integer i32
 /// given_input - It is of type List enum
 ///
 /// #Return
