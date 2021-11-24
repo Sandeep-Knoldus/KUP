@@ -13,14 +13,14 @@ pub use std::{thread, time};
 pub async fn async_multiply() {
     log::info!("Multiplication table of 2 and 3");
     let multiply_by_2 = async {
-        for i in 1..=10 {
-            log::debug!("2 x {} = {}", i, 2 * i);
+        for multiplied_number in 1..=10 {
+            log::debug!("2 * {} = {}", multiplied_number, 2 * multiplied_number);
             thread::sleep(time::Duration::from_millis(10));
         }
     };
     let multiply_by_3 = async {
-        for i in 1..=10 {
-            log::debug!("3 x {} = {}", i, 3 * i);
+        for multiplied_number in 1..=10 {
+            log::debug!("3 * {} = {}", multiplied_number, 3 * multiplied_number);
             thread::sleep(time::Duration::from_millis(10));
         }
     };
