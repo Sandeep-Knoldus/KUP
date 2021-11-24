@@ -5,11 +5,11 @@ pub use std::{thread, time};
 ///
 /// #Arguments
 ///
-/// Null
+/// No Arguments
 ///
 /// #Return
 ///
-/// Null
+/// No Return
 pub async fn async_multiply() {
     log::info!("Multiplication table of 2 and 3");
     let multiply_by_2 = async {
