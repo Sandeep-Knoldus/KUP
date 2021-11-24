@@ -5,11 +5,11 @@ pub use std::{thread, time};
 ///
 /// #Arguments
 ///
-/// Null
+/// No Arguments
 ///
 /// #Return
 ///
-/// Null
+/// No Return
 pub async fn async_fashion() {
     log::info!("Data in Asynchronous fashion");
     let async_fashion = thread::spawn(|| {
