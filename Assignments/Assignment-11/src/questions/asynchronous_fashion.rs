@@ -13,13 +13,13 @@ pub use std::{thread, time};
 pub async fn async_fashion() {
     log::info!("Data in Asynchronous fashion");
     let async_fashion = thread::spawn(|| {
-        for i in 1..11 {
-            log::debug!("{}", i);
+        for print_number in 1..11 {
+            log::debug!("{}", print_number);
             thread::sleep(time::Duration::from_millis(10));
         }
     });
-    for i in 1..11 {
-        log::debug!("{}", i);
+    for print_number in 1..11 {
+        log::debug!("{}", print_number);
         thread::sleep(time::Duration::from_millis(10));
     }
     async_fashion.join().unwrap();
