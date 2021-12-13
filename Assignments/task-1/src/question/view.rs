@@ -4,24 +4,24 @@ pub extern crate mysql;
 ///
 /// #Fields
 ///
-/// emp_id: Is of i32 type
-/// emp_name: Is of String type
+/// emp_id: Is of i32 type which takes employee id
+/// emp_name: Is of String type which takes employee name
 pub struct Emp {
-    emp_id: i32,
-    emp_name: String,
+    pub emp_id: i32,
+    pub emp_name: String,
 }
 
-/// Function 'view_db_table' prints the contents of the table in database
+/// Function 'view_table_in_database' prints the contents of the table in database
 ///
 /// #Arguments
 ///
-/// query_test: Is if type String
-/// link: Is of type String
+/// query_test: Is of type String which takes the SELECT query
+/// link: Is of type String which takes the link to the MySql database
 ///
 /// #Return
 ///
-/// Returns Option<()>
-pub fn view_db_table(query_test: String, link: String) -> Option<()> {
+/// Returns Option<()> which returns Some() if database and table exists and None if it doesn't
+pub fn view_table_in_database(query_test: String, link: String) -> Option<()> {
     let pool = mysql::Pool::new(link).ok()?;
     let emps: Vec<Emp> = pool
         .prep_exec(query_test, ())
