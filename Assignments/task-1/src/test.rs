@@ -10,7 +10,7 @@ pub mod tests {
                 "INSERT INTO emp_table (emp_name) VALUES ('Rohit')".to_string(),
                 "mysql://root:12345678@localhost:3306/db_test".to_string()
             ),
-            Some(())
+            None
         );
     }
     #[test]
@@ -42,7 +42,7 @@ pub mod tests {
                 "SELECT emp_id, emp_name from emp_table".to_string(),
                 "mysql://root:12345678@localhost:3306/db_test".to_string()
             ),
-            Some(())
+            None
         );
     }
     #[test]
