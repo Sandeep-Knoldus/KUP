@@ -1,5 +1,5 @@
-pub extern crate mysql;
-
+pub use mysql::Pool;
+pub use std::process;
 /// Structure 'Emp' having 2 fields
 ///
 /// #Fields
@@ -20,27 +20,28 @@ pub struct Emp {
 ///
 /// #Return
 ///
-/// Returns Option<()> which returns Some() if database and table exists and None if it doesn't
-pub fn view_table_in_database(query_test: String, link: String) -> Option<()> {
-    let pool = mysql::Pool::new(link).ok()?;
+/// Returns Option<String> which returns Some() if database and table exists and None if it doesn't
+pub fn view_table_in_database(query_test: String, link: String) -> mysql::Result<String> {
+    let pool = mysql::Pool::new(link)?;
+
     let emps: Vec<Emp> = pool
         .prep_exec(query_test, ())
         .map(|result| {
-            result
-                .map(|x| match x {
-                    Ok(view) => view,
-                    Err(error) => panic!("{:?}", error)
-                })
-                .map(|row| {
+            result.map(|row| match row {
+                Ok(row) => {
                     let (emp_id, emp_name) = mysql::from_row(row);
                     Emp { emp_id, emp_name }
-                })
-                .collect()
-        })
-        .ok()?;
+                },
+                Err(_) => {
+                    log::error!("No rows found");
+                    process::exit(1)
+                }
+            })
+            .collect()
+        })?;
 
     for emp in emps {
         log::info!("{:?}: {:?}", emp.emp_id, emp.emp_name);
     }
-    Some(())
+    Ok("Connection Established".to_string())
 }
