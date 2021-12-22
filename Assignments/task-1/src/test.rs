@@ -8,9 +8,8 @@ pub mod tests {
             insert_into_table_in_database(
                 "INSERT INTO emp (emp_name) VALUES ('XYZ')".to_string(),
                 "mysql://root:12345678@localhost:3306/db_test".to_string()
-            )
-            .as_deref(),
-            Ok("Connection Established")
+            ),
+            Err(_)
         ));
     }
     #[test]
@@ -42,9 +41,8 @@ pub mod tests {
             view_table_in_database(
                 "SELECT * from emp".to_string(),
                 "mysql://root:12345678@localhost:3306/db_test".to_string()
-            )
-            .as_deref(),
-            Ok("Connection Established")
+            ),
+            Err(_)
         ));
     }
     #[test]
