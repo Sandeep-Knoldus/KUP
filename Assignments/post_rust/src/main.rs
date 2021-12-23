@@ -27,7 +27,7 @@ async fn get_state() -> impl Responder {
     vec.push(Country{country_code: "US".to_string(), country_name: "United States".to_string()});
     vec.push(Country{country_code: "UK".to_string(), country_name: "United Kingdom".to_string()});
 
-    return web::Json(vec);
+    web::Json(vec)
 }
 
 /// Function 'main' creates a HTTP Server
