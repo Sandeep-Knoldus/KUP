@@ -21,9 +21,8 @@ struct Country {
 ///
 /// Returns handler
 async fn get_state() -> impl Responder {
-    let mut vec:Vec<Country> = Vec::new();
+    let mut vec:Vec<Country> = vec![Country{country_code: "IND".to_string(), country_name: "India".to_string()}];
 
-    vec.push(Country{country_code: "IND".to_string(), country_name: "India".to_string()});
     vec.push(Country{country_code: "US".to_string(), country_name: "United States".to_string()});
     vec.push(Country{country_code: "UK".to_string(), country_name: "United Kingdom".to_string()});
 
@@ -31,7 +30,7 @@ async fn get_state() -> impl Responder {
 }
 
 /// Function 'main' creates a HTTP Server
-/// 
+///
 /// #Arguments
 ///
 /// No Arguments
