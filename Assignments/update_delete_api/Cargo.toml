@@ -1,0 +1,14 @@
+[package]
+name = "update_delete_api"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = "1"
+serde_json = "1"
+actix-web = "4.0.0-beta.8"
+env_logger = "0.9.0"
+log = "0.4.14"
+serial_test = "0.5.1"
