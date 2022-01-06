@@ -1,7 +1,5 @@
-use std::fs::File;
 pub use crate::{armstrong_no, automorphic_no, matrix_a_b, neon_check, palindrome_seq};
 pub use std::io;
-use std::io::{BufRead, BufReader};
 
 /// Function 'op' prints the Mathematics Menu
 ///
@@ -45,7 +43,7 @@ pub fn operations_main() {
                     io::stdin().read_line(&mut input).expect("Not ok");
                     let trimmed: i32 = input.trim().parse().expect("Not integer");
                     let result = armstrong_no(trimmed);
-                    if result == true {
+                    if result {
                         log::info!("Armstrong")
                     } else {
                         log::error!("Not Armstrong")
@@ -60,7 +58,7 @@ pub fn operations_main() {
                     io::stdin().read_line(&mut input).expect("Not ok");
                     let trimmed: i32 = input.trim().parse().expect("Not Integer");
                     let result = automorphic_no(trimmed);
-                    if result == true {
+                    if result {
                         log::info!("Automorphic")
                     } else {
                         log::error!("Not Automorphic")
@@ -70,33 +68,30 @@ pub fn operations_main() {
                     break;
                 }
                 3 => {
-                    let mut f = BufReader::new(File::open("src/matrix1").expect("Cannot open file"));
-
-                    let mut num_line = String::new();
-                    f.read_line(&mut num_line).expect("Cannot read line");
-                    let n: usize = num_line[1..].trim().parse().expect("Not integer");
-
-                    let mut arr = vec![vec![0i32; n]; n];
-                    for (i, line) in f.lines().enumerate() {
-                        for (j, number) in line.unwrap().split(char::is_whitespace).enumerate() {
-                            arr[i][j] = number.trim().parse().unwrap();
+                    let mut arr1 = [[0_usize; 2]; 2];
+                    log::info!("Enter elements of 1st Matrix: ");
+                    for row in &mut arr1 {
+                        for e in row {
+                            let mut input = String::new();
+                            io::stdin().read_line(&mut input).expect("Cannot read line");
+                            *e = input.trim().parse().expect("Not Integer")
                         }
                     }
+                    log::info!("Matrix 1: {:?}", arr1);
 
-                    let mut f = BufReader::new(File::open("src/matrix2").expect("Cannot open file"));
-
-                    let mut num_line = String::new();
-                    f.read_line(&mut num_line).expect("Cannot read line");
-                    let n: usize = num_line[1..].trim().parse().expect("Not integer");
-
-                    let mut arr2 = vec![vec![0i32; n]; n];
-                    for (i, line) in f.lines().enumerate() {
-                        for (j, number) in line.unwrap().split(char::is_whitespace).enumerate() {
-                            arr2[i][j] = number.trim().parse().unwrap();
+                    let mut arr2 = [[0_usize; 2]; 2];
+                    log::info!("Enter elements of 2nd Matrix: ");
+                    for row in &mut arr2 {
+                        for e in row {
+                            let mut input = String::new();
+                            io::stdin().read_line(&mut input).expect("Cannot read line");
+                            *e = input.trim().parse().expect("Not Integer")
                         }
                     }
-                    let res = matrix_a_b(arr, arr2);
-                    log::info!("{:?}", res);
+                    log::info!("Matrix 2: {:?}", arr2);
+
+                    let result = matrix_a_b(arr1, arr2);
+                    log::info!("{:?}", result);
                     op();
                     operations_main();
                     break;
@@ -107,7 +102,7 @@ pub fn operations_main() {
                     io::stdin().read_line(&mut input).expect("Not ok");
                     let trimmed: i32 = input.trim().parse().expect("Not integer");
                     let result = neon_check(trimmed);
-                    if result == true {
+                    if result {
                         log::info!("Neon")
                     } else {
                         log::error!("Not Neon")
@@ -122,7 +117,7 @@ pub fn operations_main() {
                     io::stdin().read_line(&mut input).expect("Not ok");
                     let trimmed: i32 = input.trim().parse().expect("Not integer");
                     let result = palindrome_seq(trimmed);
-                    if result == true {
+                    if result {
                         log::info!("Palindrome")
                     } else {
                         log::error!("Not Palindrome")
