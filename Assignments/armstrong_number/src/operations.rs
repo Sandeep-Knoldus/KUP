@@ -1,5 +1,6 @@
 pub use crate::{armstrong_no, automorphic_no, matrix_a_b, neon_check, palindrome_seq};
 pub use std::io;
+use text_io::read;
 
 /// Function 'op' prints the Mathematics Menu
 ///
@@ -68,30 +69,33 @@ pub fn operations_main() {
                     break;
                 }
                 3 => {
-                    let mut arr1 = [[0_usize; 2]; 2];
-                    log::info!("Enter elements of 1st Matrix: ");
-                    for row in &mut arr1 {
-                        for e in row {
-                            let mut input = String::new();
-                            io::stdin().read_line(&mut input).expect("Cannot read line");
-                            *e = input.trim().parse().expect("Not Integer")
+                    log::info!("Enter no. of rows of 1st matrix");
+                    let row_1: i32 = read!();
+                    log::info!("Enter no. of columns of 1st matrix");
+                    let column_1: i32 = read!();
+                    let mut first_matrix: Vec<Vec<i32>> = Vec::new();
+                    log::info!("Enter the values of 1st matrix");
+                    for _loop1 in 0..row_1 {
+                        let mut input: Vec<i32> = Vec::new();
+                        for _loop2 in 0..column_1 {
+                            input.push(read!())
                         }
+                        first_matrix.push(input);
                     }
-                    log::info!("Matrix 1: {:?}", arr1);
-
-                    let mut arr2 = [[0_usize; 2]; 2];
-                    log::info!("Enter elements of 2nd Matrix: ");
-                    for row in &mut arr2 {
-                        for e in row {
-                            let mut input = String::new();
-                            io::stdin().read_line(&mut input).expect("Cannot read line");
-                            *e = input.trim().parse().expect("Not Integer")
+                    log::info!("Enter no. of rows of 2nd matrix");
+                    let row_2: i32 = read!();
+                    log::info!("Enter no. of columns of 2nd matrix");
+                    let column_2: i32 = read!();
+                    let mut second_matrix: Vec<Vec<i32>> = Vec::new();
+                    log::info!("Enter the values of 2nd matrix");
+                    for _loop1 in 0..row_2 {
+                        let mut vec: Vec<i32> = Vec::new();
+                        for _loop2 in 0..column_2 {
+                            vec.push(read!())
                         }
+                        second_matrix.push(vec);
                     }
-                    log::info!("Matrix 2: {:?}", arr2);
-
-                    let result = matrix_a_b(arr1, arr2);
-                    log::info!("{:?}", result);
+                    log::debug!("{:?}", matrix_a_b(&first_matrix, &second_matrix));
                     op();
                     operations_main();
                     break;
