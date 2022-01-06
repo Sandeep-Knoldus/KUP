@@ -1,10 +1,10 @@
 #[cfg(test)]
 pub mod tests {
-    use std::fs::File;
-    use std::io::{BufRead, BufReader};
-    pub use crate::modules::{armstrong_number, automorphic_number, neon_number, palindrome, matrix_multiply};
+    pub use crate::modules::{
+        armstrong_number, automorphic_number, matrix_multiply, neon_number, palindrome,
+    };
     pub use crate::operations::{op, operations_main};
-    use crate::{armstrong_no, automorphic_no, neon_check, palindrome_seq, matrix_a_b};
+    use crate::{armstrong_no, automorphic_no, matrix_a_b, neon_check, palindrome_seq};
 
     #[test]
     pub fn armstrong_success() {
@@ -40,32 +40,14 @@ pub mod tests {
     }
     #[test]
     pub fn matrix_success() {
-        let mut f = BufReader::new(File::open("src/matrix1").expect("Cannot open file"));
-
-        let mut num_line = String::new();
-        f.read_line(&mut num_line).expect("Cannot read line");
-        let n: usize = num_line[1..].trim().parse().expect("Not integer");
-
-        let mut arr = vec![vec![0i32; n]; n];
-        for (i, line) in f.lines().enumerate() {
-            for (j, number) in line.unwrap().split(char::is_whitespace).enumerate() {
-                arr[i][j] = number.trim().parse().unwrap();
-            }
-        }
-
-        let mut f = BufReader::new(File::open("src/matrix2").expect("Cannot open file"));
-
-        let mut num_line = String::new();
-        f.read_line(&mut num_line).expect("Cannot read line");
-        let n: usize = num_line[1..].trim().parse().expect("Not integer");
-
-        let mut arr2 = vec![vec![0i32; n]; n];
-        for (i, line) in f.lines().enumerate() {
-            for (j, number) in line.unwrap().split(char::is_whitespace).enumerate() {
-                arr2[i][j] = number.trim().parse().unwrap();
-            }
-        }
-        assert_eq!(matrix_a_b(arr, arr2), [[6, 6, 6], [15, 15, 15], [24, 24, 24]])
+        let mat_1 = [[1, 2], [3, 4]];
+        let mat_2 = [[5, 6], [7, 8]];
+        assert_eq!(matrix_a_b(mat_1, mat_2), [[19, 22], [43, 50]]);
     }
-
+    #[test]
+    pub fn matrix_failure() {
+        let mat_1 = [[3, 1], [8, 9]];
+        let mat_2 = [[5, 6], [7, 8]];
+        assert_ne!(matrix_a_b(mat_1, mat_2), [[19, 22], [43, 50]]);
+    }
 }
